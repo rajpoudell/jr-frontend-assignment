@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+* For this repo normally git clone [link]
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+`Certainly! Let's go through the code step by step to explain its functionality and how it works:`
 
-## Available Scripts
+### Importing dependencies and components:
+`import React, { useState } from 'react'; `
+`import Header from './components/Header'; `
+`import Movie from './components/Movies'; `
+`import movies from './movie.json'; `
 
-In the project directory, you can run:
+* The code imports the necessary dependencies, such as React and useState, which is a React Hook for managing state.
+* It also imports the Header and Movie components from their respective files.
+* The movies variable is imported from a JSON file, which contains an array of movie data.
 
-### `npm start`
+### App component and state management:
+` function App() {`
+`   const [searchTerm, setSearchTerm] = useState('');`
+`   // ...`
+` }`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+` The App component is a functional component that serves as the main component for the application.`
+` It initializes a state variable searchTerm using the useState hook, with an initial value of an empty string.`
+` The setSearchTerm function is used to update the value of the searchTerm state variable.`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Rendering the UI:
 
-### `npm test`
+` return (`
+`   <div className="App text-center min-h-screen bg-gradient-to-r from-black to-black"> `
+`     <nav className="backdrop-blur-sm flex z-50 gap-36 fixed w-full"> `
+`       <Header /> `
+`       {/* ... */} `
+`     </nav> `
+`     {/* ... */} `
+`     <div className="main flex justify-between flex-wrap p-[14px] gap-5 pt-24"> `
+`       {/* ... */} `
+`     </div> `
+`   </div> `
+` ); `
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+* The return statement defines the JSX code to be rendered.
+* The root div element has the class App and some styling classes.
+* Inside the root div, a nav element is added to contain the Header component and the search input field.
+* The Header component is rendered within the nav element.
+* The search input field is rendered as an input element within the nav element, with styling classes for appearance.
+* The main movie container is rendered within a div element with the class main, and it is styled with flexbox and padding.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Filtering and mapping movies:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+`{movies `
+`  .filter((e) => { `
+`    if (searchTerm === '') { `
+`      return true; `
+`    } else if (e.Title.toLowerCase().includes(searchTerm.toLowerCase())) { `
+`      return true; `
+`    } `
+`    return false; `
+`  }) `
+`  .map((e, i) => ( `
+`    <Movie key={i} title={e.Title} img={e.Poster} /> `
+`  ))}  `
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* The movies array is filtered based on the searchTerm value.
+* The filter function checks if the searchTerm is empty. If so, it returns true for all movies, meaning all movies will be included.
+* If the searchTerm is not empty, it checks if the lowercase movie title includes the lowercase searchTerm. If it does, it returns true, meaning the * movie will be included.
+* The filtered movies are then mapped using the map function to render individual Movie components.
+* Each Movie component is assigned a unique key prop using the i index value, and it is passed the title and img props from the filtered movie data.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+`That's a high-level overview of the code. It sets up the basic structure of the application, including the header, search`
