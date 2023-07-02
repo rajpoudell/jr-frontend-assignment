@@ -1,5 +1,5 @@
 import React from "react";
-import movie from '../movie.json'
+
 
 const Movie = (props) => {
 
