@@ -1,5 +1,8 @@
 * For this repo normally git clone [link]
 
+### Note :
+The UI design is Basic and minimal . Similarly, React is used to build the website instead of Next js (as mentioned),  Due to the time limitation and I am familiar with Nextjs but not much than basic
+
 `Certainly! Let's go through the code step by step to explain its functionality and how it works:`
 
 ### Importing dependencies and components:
